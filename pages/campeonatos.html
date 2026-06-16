@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valorant | Campeonatos</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+   
+    .camp-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .camp-card {
+      background-color: var(--fundo2);
+      border: 1px solid rgba(255, 70, 85, 0.15);
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .camp-card:hover {
+      border-color: var(--vermelho);
+    }
+
+    .camp-card__topo {
+      background: linear-gradient(135deg, var(--fundo3), #1a0d10);
+      padding: 30px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 2px solid var(--vermelho);
+    }
+
+    .camp-card__titulo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--branco);
+    }
+
+    .camp-card__titulo span {
+      color: var(--vermelho);
+    }
+
+    .camp-card__ano {
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--cinza);
+      margin-top: 4px;
+    }
+
+    .camp-card__trofeu {
+      font-size: 52px;
+    }
+
+    .camp-card__corpo {
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .camp-card__descricao {
+      font-size: 15px;
+      color: var(--cinza);
+      line-height: 1.8;
+    }
+
+    .camp-card__info {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .info-linha {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,70,85,0.08);
+      padding-bottom: 10px;
+    }
+
+    .info-linha__label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--cinza);
+    }
+
+    .info-linha__valor {
+      font-family: 'Oswald', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--branco);
+      text-align: right;
+    }
+
+    .info-linha__valor.destaque {
+      color: var(--vermelho);
+    }
+
+    .camp-card__podio {
+      grid-column: 1 / -1;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,70,85,0.1);
+    }
+
+    .podio-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--fundo3);
+      padding: 8px 16px;
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .podio-item__pos {
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .pos-1 { color: #f0c040; }
+    .pos-2 { color: #b0b8c8; }
+    .pos-3 { color: #cd7f32; }
+
+    .podio-item__time {
+      font-family: 'Oswald', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--branco);
+    }
+
+    .podio-item__pais {
+      font-size: 13px;
+      color: var(--cinza);
+    }
+
+    .vct-regiao {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .vct-card {
+      background-color: var(--fundo2);
+      border: 1px solid rgba(255,70,85,0.15);
+      padding: 24px;
+      transition: border-color 0.3s;
+    }
+
+    .vct-card:hover { border-color: var(--vermelho); }
+
+    .vct-card__icone {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .vct-card__nome {
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--branco);
+      margin-bottom: 6px;
+    }
+
+    .vct-card__paises {
+      font-size: 14px;
+      color: var(--cinza);
+      margin-bottom: 12px;
+    }
+
+    .vct-card__times {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--vermelho);
+    }
+
+    .vct-card__label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--cinza);
+    }
+
+    @media (max-width: 640px) {
+      .camp-card__corpo {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar__logo"><a href="../index.html">Valor<span>ant</span></a></div>
+    <ul class="navbar__links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="agentes.html">Agentes</a></li>
+      <li><a href="mapas.html">Mapas</a></li>
+      <li><a href="armas.html">Armas</a></li>
+      <li><a href="times.html">Times</a></li>
+      <li><a href="jogadores.html">Jogadores</a></li>
+      <li><a href="campeonatos.html" class="active">Campeonatos</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+
+  <section class="pagina-hero">
+    <h1 class="pagina-hero__titulo">Os <span>Campeonatos</span></h1>
+    <p class="pagina-hero__sub">Os maiores torneios que definiram a história do Valorant.</p>
+  </section>
+
+  <section class="secao secao--escura">
+    <div class="secao__cabecalho">
+      <span class="secao__label">Circuito</span>
+      <h2 class="secao__titulo">Como funciona o <span>VCT</span>?</h2>
+    </div>
+    <p style="text-align:center; color: var(--cinza); font-size:16px; max-width:700px; margin: 0 auto 48px; line-height:1.8;">
+      O Valorant Champions Tour (VCT) é a liga oficial da Riot Games, dividida em três regiões com 10 times parceiros cada. Os melhores de cada região se classificam para os Masters e o Champions, o mundial do jogo.
+    </p>
+    <div class="vct-regiao">
+      <div class="vct-card">
+        <div class="vct-card__icone">🌎</div>
+        <div class="vct-card__nome">VCT Americas</div>
+        <div class="vct-card__paises">EUA, Brasil, Canadá, LATAM</div>
+        <div class="vct-card__times">10</div>
+        <div class="vct-card__label">Times parceiros</div>
+      </div>
+      <div class="vct-card">
+        <div class="vct-card__icone">🌍</div>
+        <div class="vct-card__nome">VCT EMEA</div>
+        <div class="vct-card__paises">Europa, Oriente Médio, África</div>
+        <div class="vct-card__times">10</div>
+        <div class="vct-card__label">Times parceiros</div>
+      </div>
+      <div class="vct-card">
+        <div class="vct-card__icone">🌏</div>
+        <div class="vct-card__nome">VCT Pacific</div>
+        <div class="vct-card__paises">Coreia, Japão, SEA, China</div>
+        <div class="vct-card__times">10</div>
+        <div class="vct-card__label">Times parceiros</div>
+      </div>
+      <div class="vct-card">
+        <div class="vct-card__icone">🏆</div>
+        <div class="vct-card__nome">VCT Champions</div>
+        <div class="vct-card__paises">Mundial — os melhores de cada região</div>
+        <div class="vct-card__times">16</div>
+        <div class="vct-card__label">Times classificados</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="secao__cabecalho">
+      <span class="secao__label">Mundiais</span>
+      <h2 class="secao__titulo">Valorant <span>Champions</span></h2>
+    </div>
+
+    <div class="camp-grid">
+
+      <div class="camp-card">
+        <div class="camp-card__topo">
+          <div>
+            <div class="camp-card__titulo">Champions <span>2021</span></div>
+            <div class="camp-card__ano">Dezembro 2021 &mdash; Berlim, Alemanha</div>
+          </div>
+          <div class="camp-card__trofeu">🏆</div>
+        </div>
+        <div class="camp-card__corpo">
+          <p class="camp-card__descricao">
+            O primeiro Valorant Champions da história reuniu 16 times em Berlim. O torneio foi histórico e apresentou o cenário competitivo ao mundo com partidas memoráveis e uma final emocionante.
+          </p>
+          <div class="camp-card__info">
+            <div class="info-linha">
+              <span class="info-linha__label">Prize Pool</span>
+              <span class="info-linha__valor destaque">$1.000.000</span>
+            </div>
+            <div class="info-linha">
+              <span class="info-linha__label">Times</span>
+              <span class="info-linha__valor">16</span>
+            </div>
+            <div class="info-linha">
+              <span class="info-linha__label">Local</span>
+              <span class="info-linha__valor">Berlim, Alemanha</span>
+            </div>
+            <div class="info-linha">
+              <span class="info-linha__label">Hype da Final</span>
+              <span class="info-linha__valor">acend vs Gambit</span>
+            </div>
+          </div>
+          <div class="camp-card__podio">
+            <div class="podio-item">
+              <span class="podio-item__pos pos-1">1°</span>
+              <div>
+                <div class="podio-item__time">acend</div>
+                <div class="podio-item__pais">🇩🇪 Europeu</div>
+              </div>
+            </div>
+            <div class="podio-item">
+              <span class="podio-item__pos pos-2">2°</span>
+              <div>
+                <div class="podio-item__time">Gambit Esports</div>
+                <div class="podio-item__pais">🇷🇺 CIS</div>
+              </div>
+            </div>
+            <div class="podio-item">
+              <span class="podio-item__pos pos-3">3°</span>
+              <div>
+                <div class="podio-item__time">Team Envy</div>
+                <div class="podio-item__pais">🇺🇸 América do Norte</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="camp-card">
+        <div class="camp-card__topo">
+          <div>
+            <div class="camp-card__titulo">Champions <span>2022</span></div>
+            <div class="camp-card__ano">Setembro 2022 &mdash; Istambul, Turquia</div>
+          </div>
+          <div class="camp-card__trofeu">🏆</div>
+        </div>
+        <div class="camp-card__corpo">
+          <p class="camp-card__descricao">
+            O ano do Brasil. A LOUD, liderada por aspas e pAura, conquistou o mundial em Istambul em uma campanha inesquecível, fazendo o país inteiro vibrar. aspas foi eleito MVP com atuações históricas.
+          </p>
+          <div class="camp-card__info">
+            <div class="info-linha">
+              <span class="info-linha__label">Prize Pool</span>
+              <span class="info-linha__valor destaque">$1.000.000</span>
+            </div>
+            <div class="info-linha">
+              <span class="info-linha__label">Times</span>
+              <span class="info-linha__valor">16</span>
+            </div>
+            <div class="info-linha">
+              <span class="info-linha__label">Local</span>
+              <span class="info-linha__valor">Istambul, Turquia</span>
+            </div>
+            <div class="info-linha">
+              <span class="info-linha__label">MVP</span>
+              <span class="info-linha__valor destaque">aspas (LOUD)</span>
+            </div>
+          </div>
+          <div class="camp-card__podio">
+            <div class="podio-item">
+              <span class="podio-item__pos pos-1">1°</span>
+              <div>
+                <div class="podio-item__time">LOUD</div>
+                <div class="podio-item__pais">🇧🇷 Brasil</div>
+              </div>
+            </div>
+            <div class="podio-item">
+              <span class="podio-item__pos pos-2">2°</span>
+              <div>
+                <div class="podio-item__time">OpTic Gaming</div>
+                <div class="podio-item__pais">🇺🇸 América do Norte</div>
+              </div>
+            </div>
+            <div class="podio-item">
+              <span class="podio-item__pos pos-3">3°</span>
+              <div>
+                <div class="podio-item__time">DRX</div>
+                <div class="podio-item__pais">🇰🇷 Coreia</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="camp-card">
+        <div class="camp-card__topo">
+          <div>
+            <div class="camp-card__titulo">Champions <span>2023</span></div>
+            <div class="camp-card__ano">Agosto 2023 &mdash; Los Angeles, EUA</div>
+          </div>
+          <div class="camp-card__trofeu">🏆</div>
+        </div>
+        <div class="camp-card__corpo">
+          <p class="camp-card__descricao">
+            Realizado em Los Angeles, o Champions 2023 foi marcado pela surpreendente campanha do Evil Geniuses, que derrotou o Paper Rex na grande final em uma série eletrizante. Considerado um dos melhores torneios da história.
+          </p>
+          <div class="camp-card__info">
+            <div class="info-linha">
+              <span class="info-linha__label">Prize Pool</span>
+              <span class="info-linha__valor destaque">$2.250.000</span>
+            </div>
+            <div class="info-linha">
+              <span class="info-linha__label">Times</span>
+              <span class="info-linha__valor">16</span>
+            </div>
+            <div class="info-linha">
+              <span class="info-linha__label">Local</span>
+              <span class="info-linha__valor">Los Angeles, EUA</span>
+            </div>
+            <div class="info-linha">
+              <span class="info-linha__label">Final</span>
+              <span class="info-linha__valor">EG 3 x 1 Paper Rex</span>
+            </div>
+          </div>
+          <div class="camp-card__podio">
+            <div class="podio-item">
+              <span class="podio-item__pos pos-1">1°</span>
+              <div>
+                <div class="podio-item__time">Evil Geniuses</div>
+                <div class="podio-item__pais">🇺🇸 América</div>
+              </div>
+            </div>
+            <div class="podio-item">
+              <span class="podio-item__pos pos-2">2°</span>
+              <div>
+                <div class="podio-item__time">Paper Rex</div>
+                <div class="podio-item__pais">🇸🇬 Pacific</div>
+              </div>
+            </div>
+            <div class="podio-item">
+              <span class="podio-item__pos pos-3">3°</span>
+              <div>
+                <div class="podio-item__time">NaVi</div>
+                <div class="podio-item__pais">🇺🇦 EMEA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="secao secao--escura">
+    <div class="secao__cabecalho">
+      <span class="secao__label">Masters</span>
+      <h2 class="secao__titulo">Masters <span>Históricos</span></h2>
+    </div>
+    <div style="max-width:1000px; margin: 0 auto;">
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>Torneio</th>
+            <th>Ano</th>
+            <th>Local</th>
+            <th>Campeão</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Masters Reykjavik</td>
+            <td>2021</td>
+            <td>🇮🇸 Islândia</td>
+            <td style="color: var(--vermelho);">Sentinels</td>
+          </tr>
+          <tr>
+            <td>Masters Berlin</td>
+            <td>2021</td>
+            <td>🇩🇪 Alemanha</td>
+            <td style="color: var(--vermelho);">Gambit Esports</td>
+          </tr>
+          <tr>
+            <td>Masters Reykjavik</td>
+            <td>2022</td>
+            <td>🇮🇸 Islândia</td>
+            <td style="color: var(--vermelho);">OpTic Gaming</td>
+          </tr>
+          <tr>
+            <td>Masters Copenhagen</td>
+            <td>2022</td>
+            <td>🇩🇰 Dinamarca</td>
+            <td style="color: var(--vermelho);">FunPlus Phoenix</td>
+          </tr>
+          <tr>
+            <td>Masters Tokyo</td>
+            <td>2023</td>
+            <td>🇯🇵 Japão</td>
+            <td style="color: var(--vermelho);">Fnatic</td>
+          </tr>
+          <tr>
+            <td>Masters Madrid</td>
+            <td>2024</td>
+            <td>🇪🇸 Espanha</td>
+            <td style="color: var(--vermelho);">Sentinels</td>
+          </tr>
+          <tr>
+            <td>Masters Shanghai</td>
+            <td>2024</td>
+            <td>🇨🇳 China</td>
+            <td style="color: var(--vermelho);">Edward Gaming</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer__logo">Valor<span>ant</span></div>
+    <p class="footer__copy">&copy; 2026 Valorant Fan Site &mdash; Criado para fins acadêmicos.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

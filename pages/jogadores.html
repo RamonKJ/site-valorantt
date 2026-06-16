@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valorant | Jogadores</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .jogadores-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .jogador-card {
+      background-color: var(--fundo2);
+      border: 1px solid rgba(255, 70, 85, 0.15);
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+      position: relative;
+    }
+
+    .jogador-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--vermelho);
+    }
+
+    .jogador-card__destaque {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background-color: var(--vermelho);
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      color: var(--branco);
+    }
+
+    .jogador-card__foto {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      object-position: top;
+      background-color: var(--fundo3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .jogador-card__foto-placeholder {
+      width: 100%;
+      height: 240px;
+      background: linear-gradient(135deg, var(--fundo3), var(--fundo2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .jogador-card__iniciais {
+      font-family: 'Oswald', sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      color: var(--vermelho);
+      opacity: 0.5;
+    }
+
+    .jogador-card__corpo {
+      padding: 20px;
+    }
+
+    .jogador-card__pais {
+      font-size: 13px;
+      color: var(--cinza);
+      margin-bottom: 4px;
+    }
+
+    .jogador-card__nick {
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--branco);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .jogador-card__nome-real {
+      font-size: 14px;
+      color: var(--cinza);
+      margin-bottom: 14px;
+    }
+
+    .jogador-card__time {
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--vermelho);
+      border: 1px solid var(--vermelho);
+      padding: 4px 12px;
+      margin-bottom: 14px;
+    }
+
+    .jogador-card__descricao {
+      font-size: 14px;
+      color: var(--cinza);
+      line-height: 1.6;
+    }
+
+    .jogador-card__stats {
+      display: flex;
+      gap: 0;
+      margin-top: 16px;
+      border-top: 1px solid rgba(255,70,85,0.1);
+      padding-top: 14px;
+    }
+
+    .jogador-stat {
+      flex: 1;
+      text-align: center;
+    }
+
+    .jogador-stat__valor {
+      font-family: 'Oswald', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--vermelho);
+    }
+
+    .jogador-stat__nome {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--cinza);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar__logo"><a href="../index.html">Valor<span>ant</span></a></div>
+    <ul class="navbar__links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="agentes.html">Agentes</a></li>
+      <li><a href="mapas.html">Mapas</a></li>
+      <li><a href="armas.html">Armas</a></li>
+      <li><a href="times.html">Times</a></li>
+      <li><a href="jogadores.html" class="active">Jogadores</a></li>
+      <li><a href="campeonatos.html">Campeonatos</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+
+  <section class="pagina-hero">
+    <h1 class="pagina-hero__titulo">Lendas do <span>Valorant</span></h1>
+    <p class="pagina-hero__sub">Os jogadores que escreveram a história do jogo.</p>
+  </section>
+
+  <section class="secao">
+    <div class="secao__cabecalho">
+      <span class="secao__label">Destaques</span>
+      <h2 class="secao__titulo">Melhores <span>Jogadores</span></h2>
+    </div>
+
+    <div class="jogadores-grid">
+
+      <div class="jogador-card">
+        <div class="jogador-card__destaque">ÍCONE</div>
+        <div class="jogador-card__foto-placeholder">
+          <img src="../{images,css,js,pages}/TenZ.jfif" alt="TenZ" class="jogador-card__foto" />
+        </div>
+        <div class="jogador-card__corpo">
+          <div class="jogador-card__pais">🇨🇦 Canadá</div>
+          <div class="jogador-card__nick">TenZ</div>
+          <div class="jogador-card__nome-real">Tyson Ngo</div>
+          <div class="jogador-card__time">Sentinels</div>
+          <p class="jogador-card__descricao">
+            Considerado por muitos o melhor Valorant player da história. Mecânica absurda e agressividade única tornaram TenZ um ícone do game.
+          </p>
+          <div class="jogador-card__stats">
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">1.28</div>
+              <div class="jogador-stat__nome">Rating</div>
+            </div>
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">Jett</div>
+              <div class="jogador-stat__nome">Agente</div>
+            </div>
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">Duelist</div>
+              <div class="jogador-stat__nome">Função</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="jogador-card">
+        <div class="jogador-card__destaque">MVP 2022</div>
+        <div class="jogador-card__foto-placeholder">
+          <img src="../{images,css,js,pages}/Aspas.jfif" alt="Aspas" class="jogador-card__foto" />
+        </div>
+        <div class="jogador-card__corpo">
+          <div class="jogador-card__pais">🇸🇪 Suécia</div>
+          <div class="jogador-card__nick">aspas</div>
+          <div class="jogador-card__nome-real">Erick Santos</div>
+          <div class="jogador-card__time">LOUD</div>
+          <p class="jogador-card__descricao">
+            O brasileiro que dominou o Champions 2022. aspas foi eleito o melhor jogador do torneio com atuações absolutamente dominantes.
+          </p>
+          <div class="jogador-card__stats">
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">1.31</div>
+              <div class="jogador-stat__nome">Rating</div>
+            </div>
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">Neon</div>
+              <div class="jogador-stat__nome">Agente</div>
+            </div>
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">Duelist</div>
+              <div class="jogador-stat__nome">Função</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="jogador-card">
+        <div class="jogador-card__destaque">ELITE</div>
+        <div class="jogador-card__foto-placeholder">
+          <img src="../{images,css,js,pages}/Derke.jfif" alt="Derke" class="jogador-card__foto" />
+        </div>
+        <div class="jogador-card__corpo">
+          <div class="jogador-card__pais">🇫🇮 Finlândia</div>
+          <div class="jogador-card__nick">Derke</div>
+          <div class="jogador-card__nome-real">Nikita Sirmitev</div>
+          <div class="jogador-card__time">Fnatic</div>
+          <p class="jogador-card__descricao">
+            O duelist europeu mais temido da cena. Derke combina precisão cirúrgica com instinto competitivo raramente visto no Valorant.
+          </p>
+          <div class="jogador-card__stats">
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">1.25</div>
+              <div class="jogador-stat__nome">Rating</div>
+            </div>
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">Jett</div>
+              <div class="jogador-stat__nome">Agente</div>
+            </div>
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">Duelist</div>
+              <div class="jogador-stat__nome">Função</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="jogador-card">
+        <div class="jogador-card__destaque">PACIFIC</div>
+        <div class="jogador-card__foto-placeholder">
+          <img src="../{images,css,js,pages}/f0rsakeN.jfif" alt="f0rsakeN " class="jogador-card__foto" />
+        </div>
+        <div class="jogador-card__corpo">
+          <div class="jogador-card__pais">🇸🇬 Singapura</div>
+          <div class="jogador-card__nick">f0rsakeN</div>
+          <div class="jogador-card__nome-real">Jason Susanto</div>
+          <div class="jogador-card__time">Paper Rex</div>
+          <p class="jogador-card__descricao">
+            O carry do Paper Rex. f0rsakeN é conhecido por executar clutches impossíveis e por seu estilo de jogo único e criativo.
+          </p>
+          <div class="jogador-card__stats">
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">1.22</div>
+              <div class="jogador-stat__nome">Rating</div>
+            </div>
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">Reyna</div>
+              <div class="jogador-stat__nome">Agente</div>
+            </div>
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">Duelist</div>
+              <div class="jogador-stat__nome">Função</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="jogador-card">
+        <div class="jogador-card__destaque">BRASIL</div>
+        <div class="jogador-card__foto-placeholder">
+          <img src="../{images,css,js,pages}/pAura.jfif" alt="pAura" class="jogador-card__foto" />
+        </div>
+        <div class="jogador-card__corpo">
+          <div class="jogador-card__pais">🇧🇷 Brasil</div>
+          <div class="jogador-card__nick">pAura</div>
+          <div class="jogador-card__nome-real">Gustavo Rossi</div>
+          <div class="jogador-card__time">LOUD</div>
+          <p class="jogador-card__descricao">
+            Um dos melhores IGLs do mundo. pAura é o cérebro por trás das estratégias da LOUD, reconhecido por sua liderança fria sob pressão.
+          </p>
+          <div class="jogador-card__stats">
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">1.10</div>
+              <div class="jogador-stat__nome">Rating</div>
+            </div>
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">Omen</div>
+              <div class="jogador-stat__nome">Agente</div>
+            </div>
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">IGL</div>
+              <div class="jogador-stat__nome">Função</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="jogador-card">
+        <div class="jogador-card__destaque">IGL</div>
+        <div class="jogador-card__foto-placeholder">
+          <img src="../{images,css,js,pages}/Boaster.jfif" alt="Boaster" class="jogador-card__foto" />
+        </div>
+        <div class="jogador-card__corpo">
+          <div class="jogador-card__pais">🇬🇧 Reino Unido</div>
+          <div class="jogador-card__nick">Boaster</div>
+          <div class="jogador-card__nome-real">Jake Howlett</div>
+          <div class="jogador-card__time">Fnatic</div>
+          <p class="jogador-card__descricao">
+            Carismático IGL do Fnatic, Boaster é adorado pela comunidade por sua personalidade e por liderar o time em grandes conquistas.
+          </p>
+          <div class="jogador-card__stats">
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">1.08</div>
+              <div class="jogador-stat__nome">Rating</div>
+            </div>
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">Fade</div>
+              <div class="jogador-stat__nome">Agente</div>
+            </div>
+            <div class="jogador-stat">
+              <div class="jogador-stat__valor">IGL</div>
+              <div class="jogador-stat__nome">Função</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer__logo">Valor<span>ant</span></div>
+    <p class="footer__copy">&copy; 2026 Valorant Fan Site &mdash; Criado para fins acadêmicos.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

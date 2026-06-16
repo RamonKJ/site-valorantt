@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valorant | Agentes</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar__logo"><a href="../index.html">Valor<span>ant</span></a></div>
+        <ul class="navbar__links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="agentes.html">Agentes</a></li>
+      <li><a href="mapas.html">Mapas</a></li>
+      <li><a href="armas.html">Armas</a></li>
+      <li><a href="times.html">Times</a></li>
+      <li><a href="jogadores.html">Jogadores</a></li>
+      <li><a href="campeonatos.html">Campeonatos</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+
+  <section class="pagina-hero">
+    <h1 class="pagina-hero__titulo">Os <span>Agentes</span></h1>
+    <p class="pagina-hero__sub">Escolha seu agente e domine o campo de batalha.</p>
+  </section>
+
+  <section class="secao">
+    <div style="text-align: center; margin-bottom: 36px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+      <button class="btn btn--vermelho" onclick="filtrar('todos')">Todos</button>
+      <button class="btn btn--borda"   onclick="filtrar('duelista')">Duelista</button>
+      <button class="btn btn--borda"   onclick="filtrar('controlador')">Controlador</button>
+      <button class="btn btn--borda"   onclick="filtrar('sentinela')">Sentinela</button>
+      <button class="btn btn--borda"   onclick="filtrar('iniciador')">Iniciador</button>
+    </div>
+
+    <div class="cards" id="lista-agentes">
+
+      <div class="card" data-classe="duelista">
+        <img class="card__img" src="https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png" alt="Jett" />
+        <div class="card__corpo">
+          <div class="card__tipo">Duelista</div>
+          <h3 class="card__nome">Jett</h3>
+          <p class="card__descricao">Ágil e evasiva, usa o vento para se mover rapidamente e surpreender os inimigos.</p>
+        </div>
+      </div>
+
+      <div class="card" data-classe="duelista">
+        <img class="card__img" src="../{images,css,js,pages}/reyna.png" alt="Reyna" />
+        <div class="card__corpo">
+          <div class="card__tipo">Duelista</div>
+          <h3 class="card__nome">Reyna</h3>
+          <p class="card__descricao">Predadora implacável que se alimenta de eliminações para fortalecer suas habilidades.</p>
+        </div>
+      </div>
+
+      <div class="card" data-classe="duelista">
+        <img class="card__img" src="../{images,css,js,pages}/phoneix.webp" alt="Phoenix" />
+        <div class="card__corpo">
+          <div class="card__tipo">Duelista</div>
+          <h3 class="card__nome">Phoenix</h3>
+          <p class="card__descricao">Controlador do fogo que cura a si mesmo e pode renascer após a morte.</p>
+        </div>
+      </div>
+
+      <div class="card" data-classe="controlador">
+        <img class="card__img" src="https://media.valorant-api.com/agents/8e253930-4c05-31dd-1b6c-968525494517/displayicon.png" alt="Omen" />
+        <div class="card__corpo">
+          <div class="card__tipo">Controlador</div>
+          <h3 class="card__nome">Omen</h3>
+          <p class="card__descricao">Ser das sombras que usa névoa e teleporte para controlar o campo de batalha.</p>
+        </div>
+      </div>
+
+      <div class="card" data-classe="controlador">
+        <img class="card__img" src="https://media.valorant-api.com/agents/707eab51-4836-f488-046a-cda6bf494859/displayicon.png" alt="Viper" />
+        <div class="card__corpo">
+          <div class="card__tipo">Controlador</div>
+          <h3 class="card__nome">Viper</h3>
+          <p class="card__descricao">Especialista em veneno que controla zonas com paredes e névoas tóxicas.</p>
+        </div>
+      </div>
+
+      <div class="card" data-classe="sentinela">
+        <img class="card__img" src="https://media.valorant-api.com/agents/9f0d8ba9-4140-b941-57d3-a7ad57c6b417/displayicon.png" alt="Sage" />
+        <div class="card__corpo">
+          <div class="card__tipo">Sentinela</div>
+          <h3 class="card__nome">Brimstone</h3>
+          <p class="card__descricao">Guardiã que cura aliados e pode ressuscitar companheiros de equipe.</p>
+        </div>
+      </div>
+
+      <div class="card" data-classe="iniciador">
+        <img class="card__img" src="https://media.valorant-api.com/agents/320b2a48-4d9b-a075-30f1-1f93a9b638fa/displayicon.png" alt="Sova" />
+        <div class="card__corpo">
+          <div class="card__tipo">Iniciador</div>
+          <h3 class="card__nome">Sova</h3>
+          <p class="card__descricao">Caçador russo que usa flechas de reconhecimento para revelar inimigos.</p>
+        </div>
+      </div>
+
+      <div class="card" data-classe="iniciador">
+        <img class="card__img" src="../{images,css,js,pages}/breach.webp" alt="Breach" />
+        <div class="card__corpo">
+          <div class="card__tipo">Iniciador</div>
+          <h3 class="card__nome">Breach</h3>
+          <p class="card__descricao">Cyborg sueco que lança ondas de choque poderosas através de paredes.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer__logo">Valor<span>ant</span></div>
+    
+    <p class="footer__copy">&copy; 2026 Valorant Fan Site &mdash; Criado para fins acadêmicos.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/main.js"></script>
+
+  <script>
+    function filtrar(classe) {
+      if (classe === 'todos') {
+        $('.card').show();
+      } else {
+        $('.card').hide();
+        $('.card[data-classe="' + classe + '"]').show();
+      }
+    }
+  </script>
+
+</body>
+</html>

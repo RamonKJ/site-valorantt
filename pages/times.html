@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valorant | Times</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .times-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .time-card {
+      background-color: var(--fundo2);
+      border: 1px solid rgba(255, 70, 85, 0.15);
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .time-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--vermelho);
+    }
+
+    .time-card__topo {
+      padding: 28px 24px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid rgba(255, 70, 85, 0.1);
+    }
+
+    .time-card__logo {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      flex-shrink: 0;
+      filter: brightness(1.1);
+    }
+
+    .time-card__info {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .time-card__pais {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--vermelho);
+      margin-bottom: 4px;
+    }
+
+    .time-card__nome {
+      font-family: 'Oswald', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--branco);
+    }
+
+    .time-card__corpo {
+      padding: 20px 24px;
+    }
+
+    .time-card__descricao {
+      font-size: 15px;
+      color: var(--cinza);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .time-card__conquista {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: var(--branco);
+    }
+
+    .time-card__conquista span {
+      color: #f0c040;
+    }
+
+    .regiao-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,70,85,0.4);
+      color: var(--cinza);
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar__logo"><a href="../index.html">Valor<span>ant</span></a></div>
+    <ul class="navbar__links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="agentes.html">Agentes</a></li>
+      <li><a href="mapas.html">Mapas</a></li>
+      <li><a href="armas.html">Armas</a></li>
+      <li><a href="times.html" class="active">Times</a></li>
+      <li><a href="jogadores.html">Jogadores</a></li>
+      <li><a href="campeonatos.html">Campeonatos</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+
+  <section class="pagina-hero">
+    <h1 class="pagina-hero__titulo">Os <span>Times</span></h1>
+    <p class="pagina-hero__sub">As organizações que dominam o cenário competitivo do Valorant.</p>
+  </section>
+
+  <section class="secao">
+    <div class="secao__cabecalho">
+      <span class="secao__label">Cenário Competitivo</span>
+      <h2 class="secao__titulo">Principais <span>Organizações</span></h2>
+    </div>
+
+    <div class="times-grid">
+
+      <div class="time-card">
+        <div class="time-card__topo">
+          <img class="time-card__logo" src="../{images,css,js,pages}/sentinels.png" alt="Sentinels" />
+          <div class="time-card__info">
+            <div class="time-card__pais">🇺🇸 Estados Unidos</div>
+            <div class="time-card__nome">Sentinels</div>
+          </div>
+        </div>
+        <div class="time-card__corpo">
+          <p class="time-card__descricao">
+            Uma das organizações mais icônicas do Valorant, famosa pela era dominante de TenZ. Considerada a equipe mais popular do cenário NA.
+          </p>
+          <div class="time-card__conquista"><span>🏆</span> Masters Reykjavik 2021</div>
+          <div class="regiao-tag">VCT Americas</div>
+        </div>
+      </div>
+
+      <div class="time-card">
+        <div class="time-card__topo">
+          <img class="time-card__logo" src="../{images,css,js,pages}/Fnatic.png" alt="Fnatic" />
+          <div class="time-card__info">
+            <div class="time-card__pais">🇬🇧 Reino Unido</div>
+            <div class="time-card__nome">Fnatic</div>
+          </div>
+        </div>
+        <div class="time-card__corpo">
+          <p class="time-card__descricao">
+            Gigante dos esports europeus, o Fnatic construiu um dos elencos mais consistentes do VCT EMEA, com jogadores de elite.
+          </p>
+          <div class="time-card__conquista"><span>🏆</span> Masters Tokyo 2023</div>
+          <div class="regiao-tag">VCT EMEA</div>
+        </div>
+      </div>
+
+      <div class="time-card">
+        <div class="time-card__topo">
+          <img class="time-card__logo" src="../{images,css,js,pages}/loud.png" alt="LOUD" />
+          <div class="time-card__info">
+            <div class="time-card__pais">🇧🇷 Brasil</div>
+            <div class="time-card__nome">LOUD</div>
+          </div>
+        </div>
+        <div class="time-card__corpo">
+          <p class="time-card__descricao">
+            O maior orgulho brasileiro no Valorant. A LOUD conquistou o mundo com seu estilo agressivo e a torcida mais apaixonada dos esports.
+          </p>
+          <div class="time-card__conquista"><span>🏆</span> Champions Istanbul 2022</div>
+          <div class="regiao-tag">VCT Americas</div>
+        </div>
+      </div>
+
+      <div class="time-card">
+        <div class="time-card__topo">
+          <img class="time-card__logo" src="../{images,css,js,pages}/Navi.png" alt="Natus Vincere" />
+          <div class="time-card__info">
+            <div class="time-card__pais">🇺🇦 Ucrânia</div>
+            <div class="time-card__nome">Natus Vincere</div>
+          </div>
+        </div>
+        <div class="time-card__corpo">
+          <p class="time-card__descricao">
+            Lenda dos esports mundiais, o NaVi trouxe sua mentalidade de campeão para o Valorant com jogadores de alto nível no EMEA.
+          </p>
+          <div class="time-card__conquista"><span>⭐</span> Top 4 Champions 2023</div>
+          <div class="regiao-tag">VCT EMEA</div>
+        </div>
+      </div>
+
+      <div class="time-card">
+        <div class="time-card__topo">
+          <img class="time-card__logo" src="../{images,css,js,pages}/PaperRex.png" alt="Paper Rex" />
+          <div class="time-card__info">
+            <div class="time-card__pais">🇸🇬 Singapura</div>
+            <div class="time-card__nome">Paper Rex</div>
+          </div>
+        </div>
+        <div class="time-card__corpo">
+          <p class="time-card__descricao">
+            O time mais caótico e empolgante do Valorant. O PRX joga um Valorant frenético, de alto risco, que emociona qualquer torcida.
+          </p>
+          <div class="time-card__conquista"><span>⭐</span> Vice-campeão Champions 2023</div>
+          <div class="regiao-tag">VCT Pacific</div>
+        </div>
+      </div>
+
+      <div class="time-card">
+        <div class="time-card__topo">
+          <img class="time-card__logo" src="../{images,css,js,pages}/team liquid.png" alt="Team Liquid" />
+          <div class="time-card__info">
+            <div class="time-card__pais">🇳🇱 Países Baixos</div>
+            <div class="time-card__nome">Team Liquid</div>
+          </div>
+        </div>
+        <div class="time-card__corpo">
+          <p class="time-card__descricao">
+            Organização global respeitada em múltiplos games, o Liquid tem buscado consistência no VCT EMEA com um elenco experiente.
+          </p>
+          <div class="time-card__conquista"><span>⭐</span> Top 8 Champions 2023</div>
+          <div class="regiao-tag">VCT EMEA</div>
+        </div>
+      </div>
+
+      <div class="time-card">
+        <div class="time-card__topo">
+          <img class="time-card__logo" src="../{images,css,js,pages}/Evil Geniuses.png" alt="Evil Geniuses"/>
+          <div class="time-card__info">
+            <div class="time-card__pais">🇺🇸 Estados Unidos</div>
+            <div class="time-card__nome">Evil Geniuses</div>
+          </div>
+        </div>
+        <div class="time-card__corpo">
+          <p class="time-card__descricao">
+            O EG surpreendeu o mundo ao conquistar o Champions 2023 em uma campanha histórica com um elenco jovem e talentoso.
+          </p>
+          <div class="time-card__conquista"><span>🏆</span> Champions Los Angeles 2023</div>
+          <div class="regiao-tag">VCT Americas</div>
+        </div>
+      </div>
+
+      <div class="time-card">
+        <div class="time-card__topo">
+          <img class="time-card__logo" src="../{images,css,js,pages}/DRX.png" alt="DRX" />
+          <div class="time-card__info">
+            <div class="time-card__pais">🇰🇷 Coreia do Sul</div>
+            <div class="time-card__nome">DRX</div>
+          </div>
+        </div>
+        <div class="time-card__corpo">
+          <p class="time-card__descricao">
+            A potência coreana do Valorant. O DRX é conhecido pela disciplina, precisão e IGL de elite, sendo um dos times mais temidos do Pacific.
+          </p>
+          <div class="time-card__conquista"><span>🏆</span> Top 3 Champions Istanbul 2022</div>
+          <div class="regiao-tag">VCT Pacific</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer__logo">Valor<span>ant</span></div>
+    <p class="footer__copy">&copy; 2026 Valorant Fan Site &mdash; Criado para fins acadêmicos.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

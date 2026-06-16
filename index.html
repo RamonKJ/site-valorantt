@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valorant | Home</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar__logo">Valorant</div>
+        <ul class="navbar__links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="pages/sobre.html">Sobre</a></li>
+      <li><a href="pages/agentes.html">Agentes</a></li>
+      <li><a href="pages/mapas.html">Mapas</a></li>
+      <li><a href="pages/armas.html">Armas</a></li>
+      <li><a href="pages/times.html">Times</a></li>
+      <li><a href="pages/jogadores.html">Jogadores</a></li>
+      <li><a href="pages/campeonatos.html">Campeonatos</a></li>
+      <li><a href="pages/contato.html">Contato</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero__conteudo">
+      <h1 class="hero__titulo">Você é o <span>Agente</span></h1>
+      <p class="hero__texto">
+        Estratégia, precisão e habilidades únicas. Descubra tudo sobre o universo do Valorant.
+      </p>
+      <div class="grupo-botoes">
+        <a href="pages/agentes.html" class="btn btn--vermelho">Ver Agentes</a>
+        <a href="pages/sobre.html" class="btn btn--borda">Saiba Mais</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao secao--escura" style="padding-top: 60px; padding-bottom: 60px;">
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__numero">25+</div>
+        <div class="stat__nome">Agentes</div>
+      </div>
+      <div class="stat">
+        <div class="stat__numero">14+</div>
+        <div class="stat__nome">Mapas</div>
+      </div>
+      <div class="stat">
+        <div class="stat__numero">20+</div>
+        <div class="stat__nome">Armas</div>
+      </div>
+      <div class="stat">
+        <div class="stat__numero">10M+</div>
+        <div class="stat__nome">Jogadores</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao-carrossel">
+    <div class="secao__cabecalho">
+      <span class="secao__label">Personagens</span>
+      <h2 class="secao__titulo">Agentes em <span>Destaque</span></h2>
+    </div>
+
+    <div class="swiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <img src="{images,css,js,pages}/JETT.png" alt="Jett" />
+          <div class="slide__info">
+            <div class="slide__classe">Duelista</div>
+            <div class="slide__nome">Jett</div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <img src="{images,css,js,pages}/reyna.png" alt="Reyna" />
+          <div class="slide__info">
+            <div class="slide__classe">Duelista</div>
+            <div class="slide__nome">Reyna</div>
+          </div>
+        </div>
+
+              
+        <div class="swiper-slide">
+          <img src="{images,css,js,pages}/phoneix.webp" alt="Phoenix" />
+          <div class="slide__info">
+            <div class="slide__classe">Duelista</div>
+            <div class="slide__nome">Phoenix</div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <img src="{images,css,js,pages}/OMEN.png" alt="Omen" />
+          <div class="slide__info">
+            <div class="slide__classe">Controlador</div>
+            <div class="slide__nome">Omen</div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <img src="{images,css,js,pages}/VIPER.png" alt="Viper" />
+          <div class="slide__info">
+            <div class="slide__classe">Controlador </div>
+            <div class="slide__nome">Viper</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer__logo">Valor<span>ant</span></div>
+    <p class="footer__copy">&copy; 2026 Valorant Fan Site &mdash; Criado para fins acadêmicos.</p>
+  </footer>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script src="js/main.js"></script>
+
+</body>
+</html>
